@@ -5,13 +5,10 @@ FROM openjdk:8-jdk-alpine
 VOLUME /tmp
 
 # Make port 8080 available to the world outside this container
-#EXPOSE 8080
+EXPOSE 8080
 
-# The application's jar file
-ARG JAR_FILE=target/jenkin-docker-intergration-1.0-SNAPSHOT.jar
 
-# Add the application's jar to the container
-ADD ${JAR_FILE} app.jar
+ADD target/jenkin-docker-integration.jar jenkin-docker-integration.jar
 
 # Run the jar file
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/jenkin-docker-integration.jar"]
